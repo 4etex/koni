@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { TitleBar } from "@/components/launcher/TitleBar";
 import { Dock } from "@/components/launcher/Dock";
+import { Orbs } from "@/components/launcher/Orbs";
 import "./launcher.css";
 
 const BASE_W = 1280;
@@ -23,6 +24,7 @@ export default function Launcher() {
     <div className="launcher-stage" data-testid="launcher-stage">
       <div className="launcher-frame" style={{ width: BASE_W * scale, height: BASE_H * scale }}>
         <main className="launcher" style={{ transform: `scale(${scale})` }} data-testid="launcher">
+          <Orbs />
           <TitleBar />
           <Dock />
         </main>

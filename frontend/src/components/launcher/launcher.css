@@ -38,9 +38,10 @@
   width: 1280px;
   height: 800px;
   transform-origin: top left;
-  background: #0A0A0A;
+  background: linear-gradient(150deg, #16263D 0%, #0F1724 50%, #132238 100%);
   border-radius: 24px;
   overflow: hidden;
+  isolation: isolate;
   color: #fff;
   font-family: 'Authentic', sans-serif;
   font-weight: 400;
@@ -49,6 +50,18 @@
 
 .launcher h1, .launcher p { margin: 0; font-weight: 400; }
 .launcher button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+
+/* glowing orbs */
+.orb {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(90px);
+  will-change: transform;
+}
 
 /* title bar */
 .titlebar {
