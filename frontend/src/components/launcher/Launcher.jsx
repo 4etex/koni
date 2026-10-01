@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { TitleBar } from "@/components/launcher/TitleBar";
 import { Dock } from "@/components/launcher/Dock";
 import { Orbs } from "@/components/launcher/Orbs";
+import { WeaponModel } from "@/components/launcher/WeaponModel";
 import "./launcher.css";
 
 const BASE_W = 1280;
@@ -26,6 +27,7 @@ export default function Launcher() {
         <main className="launcher" style={{ transform: `scale(${scale})` }} data-testid="launcher">
           <Orbs />
           <TitleBar />
+          <WeaponModel />
           <Dock />
         </main>
       </div>

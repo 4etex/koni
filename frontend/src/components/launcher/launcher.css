@@ -128,6 +128,18 @@
 .win-btn:hover { color: #fff !important; }
 .win-btn--close:hover { color: #ff6b7d !important; }
 
+/* weapon */
+.weapon {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -52%);
+  width: 1280px;
+  height: 520px;
+  pointer-events: none;
+}
+.weapon canvas { display: block; width: 100% !important; height: 100% !important; }
+
 /* dock */
 .dock {
   position: absolute;
