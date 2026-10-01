@@ -19,7 +19,7 @@ const Profile = () => {
       <span className="profile__avatar" data-testid="launcher-avatar">
         <UserIcon ref={iconRef} size={24} />
       </span>
-      <span className="profile__name">никнейм</span>
+      <span className="profile__name">Никнейм</span>
     </button>
   );
 };
@@ -29,11 +29,11 @@ export const Dock = () => (
     <nav className="dock__inner" aria-label="Главное меню">
       <Profile />
       <div className="dock__center">
-        <NavButton Icon={FileTextIcon} label="новости" testId="nav-news-btn" />
-        <NavButton Icon={PlayIcon} label="играть" variant="play" testId="nav-play-btn" />
-        <NavButton Icon={DiscordIcon} label="дискорд" testId="nav-discord-btn" />
+        <NavButton Icon={FileTextIcon} label="Новости" testId="nav-news-btn" />
+        <NavButton Icon={PlayIcon} label="Играть" variant="play" testId="nav-play-btn" />
+        <NavButton Icon={DiscordIcon} label="Дискорд" testId="nav-discord-btn" />
       </div>
-      <NavButton Icon={SettingsIcon} label="настройки" testId="nav-settings-btn" />
+      <NavButton Icon={SettingsIcon} label="Настройки" testId="nav-settings-btn" />
     </nav>
   </div>
 );

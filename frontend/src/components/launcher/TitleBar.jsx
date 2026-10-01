@@ -5,11 +5,11 @@ export const TitleBar = ({ online = 0 }) => (
   <header className="titlebar" data-testid="launcher-titlebar">
     <div className="brand-block">
       <h1 className="brand" data-testid="launcher-brand">
-        authentic <span className="brand__accent">rp</span>
+        Authentic <span className="brand__accent">RP</span>
       </h1>
       <p className="online" data-testid="launcher-online">
         <RadioLoopIcon size={16} className="online__icon" aria-hidden="true" />
-        <span className="online__label">онлайн проекта:</span>
+        <span className="online__label">Онлайн проекта:</span>
         <span className="online__count" data-testid="online-count">{online}</span>
       </p>
     </div>
