@@ -73,6 +73,7 @@
 /* title bar */
 .titlebar {
   position: absolute;
+  z-index: 1;
   left: 0; right: 0; top: 0;
   height: 100px;
   padding: 0 24px 0 32px;
@@ -131,18 +132,22 @@
 /* weapon */
 .weapon {
   position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -52%);
-  width: 1280px;
-  height: 520px;
-  pointer-events: none;
+  inset: 0;
+  z-index: 0;
+  cursor: grab;
 }
-.weapon canvas { display: block; width: 100% !important; height: 100% !important; }
+.weapon:active { cursor: grabbing; }
+.weapon canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  filter: drop-shadow(0 0 28px rgba(34, 211, 238, .55)) drop-shadow(0 0 70px rgba(34, 211, 238, .3));
+}
 
 /* dock */
 .dock {
   position: absolute;
+  z-index: 1;
   left: 50%;
   bottom: 32px;
   transform: translateX(-50%);
