@@ -1,5 +1,4 @@
 import { useRef } from "react";
-import GlassSurface from "@/components/GlassSurface";
 import { NavButton } from "@/components/launcher/NavButton";
 import { PlayIcon } from "@/components/ui/play";
 import { SettingsIcon } from "@/components/ui/settings";
@@ -27,25 +26,14 @@ const Profile = () => {
 
 export const Dock = () => (
   <div className="dock" data-testid="launcher-navigation">
-    <GlassSurface
-      width={1100}
-      height={88}
-      borderRadius={24}
-      backgroundOpacity={0}
-      saturation={1}
-      brightness={50}
-      opacity={0.93}
-      blur={11}
-    >
-      <nav className="dock__inner" aria-label="Главное меню">
-        <Profile />
-        <div className="dock__center">
-          <NavButton Icon={FileTextIcon} label="новости" testId="nav-news-btn" />
-          <NavButton Icon={PlayIcon} label="играть" variant="play" testId="nav-play-btn" />
-          <NavButton Icon={DiscordIcon} label="дискорд" testId="nav-discord-btn" />
-        </div>
-        <NavButton Icon={SettingsIcon} label="настройки" testId="nav-settings-btn" />
-      </nav>
-    </GlassSurface>
+    <nav className="dock__inner" aria-label="Главное меню">
+      <Profile />
+      <div className="dock__center">
+        <NavButton Icon={FileTextIcon} label="новости" testId="nav-news-btn" />
+        <NavButton Icon={PlayIcon} label="играть" variant="play" testId="nav-play-btn" />
+        <NavButton Icon={DiscordIcon} label="дискорд" testId="nav-discord-btn" />
+      </div>
+      <NavButton Icon={SettingsIcon} label="настройки" testId="nav-settings-btn" />
+    </nav>
   </div>
 );
