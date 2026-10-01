@@ -142,7 +142,6 @@
   display: block;
   width: 100% !important;
   height: 100% !important;
-  filter: drop-shadow(0 0 18px rgba(96, 165, 250, .28)) drop-shadow(0 0 48px rgba(59, 130, 246, .18));
 }
 
 /* dock */
