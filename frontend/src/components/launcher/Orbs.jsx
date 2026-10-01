@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 
-const W = 1280;
-const H = 800;
+const W = 1600;
+const H = 900;
 
 const ORBS = [
   { size: 520, color: "rgba(56, 160, 255, .5)", cx: 0.2, cy: 0.25, rx: 260, ry: 200, speed: 0.18, dir: 1, phase: 0 },

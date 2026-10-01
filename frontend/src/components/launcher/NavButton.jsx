@@ -1,12 +1,14 @@
 import { useRef } from "react";
 
-export const NavButton = ({ Icon, label, variant = "ghost", testId }) => {
+export const NavButton = ({ Icon, label, variant = "ghost", testId, active = false, onClick }) => {
   const iconRef = useRef(null);
   return (
     <button
       type="button"
-      className={`nav-btn nav-btn--${variant}`}
+      className={`nav-btn nav-btn--${variant} ${active ? "is-active" : ""}`}
       data-testid={testId}
+      aria-pressed={active}
+      onClick={onClick}
       onMouseEnter={() => iconRef.current?.startAnimation()}
       onMouseLeave={() => iconRef.current?.stopAnimation()}
       onFocus={() => iconRef.current?.startAnimation()}

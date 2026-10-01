@@ -6,13 +6,14 @@ import { DiscordIcon } from "@/components/ui/discord";
 import { FileTextIcon } from "@/components/ui/file-text";
 import { UserIcon } from "@/components/ui/user";
 
-const Profile = () => {
+const Profile = ({ active, onClick }) => {
   const iconRef = useRef(null);
   return (
     <button
       type="button"
-      className="profile"
+      className={`profile ${active ? "is-active" : ""}`}
       data-testid="nav-nickname-btn"
+      onClick={onClick}
       onMouseEnter={() => iconRef.current?.startAnimation()}
       onMouseLeave={() => iconRef.current?.stopAnimation()}
     >
@@ -24,16 +25,16 @@ const Profile = () => {
   );
 };
 
-export const Dock = () => (
+export const Dock = ({ active, onSelect }) => (
   <div className="dock" data-testid="launcher-navigation">
     <nav className="dock__inner" aria-label="Главное меню">
-      <Profile />
+      <Profile active={active === "profile"} onClick={() => onSelect("profile")} />
       <div className="dock__center">
-        <NavButton Icon={FileTextIcon} label="Новости" testId="nav-news-btn" />
-        <NavButton Icon={PlayIcon} label="Играть" variant="play" testId="nav-play-btn" />
-        <NavButton Icon={DiscordIcon} label="Дискорд" testId="nav-discord-btn" />
+        <NavButton Icon={FileTextIcon} label="Новости" testId="nav-news-btn" active={active === "news"} onClick={() => onSelect("news")} />
+        <NavButton Icon={PlayIcon} label="Играть" variant="play" testId="nav-play-btn" active={active === "play"} onClick={() => onSelect("play")} />
+        <NavButton Icon={DiscordIcon} label="Дискорд" testId="nav-discord-btn" active={active === "discord"} onClick={() => onSelect("discord")} />
       </div>
-      <NavButton Icon={SettingsIcon} label="Настройки" testId="nav-settings-btn" />
+      <NavButton Icon={SettingsIcon} label="Настройки" testId="nav-settings-btn" active={active === "settings"} onClick={() => onSelect("settings")} />
     </nav>
   </div>
 );

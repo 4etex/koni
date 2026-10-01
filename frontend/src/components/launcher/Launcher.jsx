@@ -4,10 +4,21 @@ import { Dock } from "@/components/launcher/Dock";
 import { Orbs } from "@/components/launcher/Orbs";
 import { WeaponModel } from "@/components/launcher/WeaponModel";
 import GradientWaves from "@/components/GradientWaves";
+import { Panel } from "@/components/launcher/Panel";
+import { GameFiles } from "@/components/launcher/GameFiles";
+import { ServerList } from "@/components/launcher/ServerList";
+import { NewsColumn } from "@/components/launcher/NewsColumn";
 import "./launcher.css";
 
-const BASE_W = 1280;
-const BASE_H = 800;
+const OTHER_PAGES = [
+  { id: "profile", title: "Профиль", text: "Информация об аккаунте появится здесь." },
+  { id: "news", title: "Новости", text: "Последние новости проекта появятся здесь." },
+  { id: "discord", title: "Дискорд", text: "Присоединяйтесь к нашему сообществу в Discord." },
+  { id: "settings", title: "Настройки", text: "Параметры лаунчера появятся здесь." },
+];
+
+const BASE_W = 1600;
+const BASE_H = 900;
 
 const useFitScale = () => {
   const [scale, setScale] = useState(1);
@@ -22,6 +33,8 @@ const useFitScale = () => {
 
 export default function Launcher() {
   const scale = useFitScale();
+  const [page, setPage] = useState(null);
+  const close = () => setPage(null);
   return (
     <div className="launcher-stage" data-testid="launcher-stage">
       <div className="launcher-frame" style={{ width: BASE_W * scale, height: BASE_H * scale }}>
@@ -52,8 +65,21 @@ export default function Launcher() {
             />
           </div>
           <TitleBar />
+          <ServerList />
+          <NewsColumn />
           <WeaponModel />
-          <Dock />
+          <Panel open={page === "play"} title="Игровые файлы" onClose={close} testId="play-panel">
+            <GameFiles onClose={close} />
+          </Panel>
+          {OTHER_PAGES.map(({ id, title, text }) => (
+            <Panel key={id} open={page === id} title={title} onClose={close} testId={`${id}-panel`}>
+              <p className="panel__subtitle">{text}</p>
+              <div className="panel__actions">
+                <button type="button" className="btn btn--ghost" onClick={close} data-testid={`${id}-close-btn`}>Закрыть</button>
+              </div>
+            </Panel>
+          ))}
+          <Dock active={page} onSelect={(id) => setPage((p) => (p === id ? null : id))} />
         </main>
       </div>
     </div>

@@ -23,7 +23,7 @@ const Carbine = () => {
 export const WeaponModel = () => (
   <div className="weapon" data-testid="weapon-model">
     <Canvas
-      camera={{ position: [0, 0, 2.9], fov: 35 }}
+      camera={{ position: [0, 0, 3.6], fov: 35 }}
       dpr={[1, 2]}
       gl={{ alpha: true, antialias: true, powerPreference: "high-performance" }}
     >
