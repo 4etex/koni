@@ -156,14 +156,14 @@
   align-items: center;
   gap: 12px;
   color: #fff !important;
-  transition: color .2s ease;
 }
-.profile:hover { color: var(--c2) !important; }
 
 .profile__avatar {
   display: grid;
   place-items: center;
+  transition: color .2s ease;
 }
+.profile:hover .profile__avatar { color: var(--c2); }
 
 .profile__name {
   font-size: 15px;
@@ -182,10 +182,9 @@
   letter-spacing: .05em;
   white-space: nowrap;
   color: #fff !important;
-  transition: color .2s ease;
 }
-.nav-btn__icon { display: flex; }
-.nav-btn:hover { color: var(--c2) !important; }
+.nav-btn__icon { display: flex; transition: color .2s ease; }
+.nav-btn:hover .nav-btn__icon { color: var(--c2); }
 
 .nav-btn--play {
   font-size: 18px;

@@ -4,38 +4,27 @@ const W = 1280;
 const H = 800;
 
 const ORBS = [
-  { size: 520, color: "rgba(56, 160, 255, .5)" },
-  { size: 440, color: "rgba(59, 130, 246, .5)" },
-  { size: 480, color: "rgba(30, 110, 220, .5)" },
-  { size: 400, color: "rgba(96, 165, 250, .4)" },
+  { size: 520, color: "rgba(56, 160, 255, .5)", cx: 0.2, cy: 0.25, rx: 260, ry: 200, speed: 0.55, dir: 1, phase: 0 },
+  { size: 440, color: "rgba(59, 130, 246, .5)", cx: 0.8, cy: 0.25, rx: 240, ry: 220, speed: 0.45, dir: -1, phase: 1.6 },
+  { size: 480, color: "rgba(30, 110, 220, .5)", cx: 0.25, cy: 0.78, rx: 280, ry: 180, speed: 0.5, dir: -1, phase: 3.1 },
+  { size: 400, color: "rgba(96, 165, 250, .4)", cx: 0.78, cy: 0.75, rx: 250, ry: 210, speed: 0.6, dir: 1, phase: 4.7 },
+  { size: 460, color: "rgba(37, 99, 235, .45)", cx: 0.5, cy: 0.5, rx: 320, ry: 160, speed: 0.4, dir: 1, phase: 2.3 },
 ];
-
-const rand = (min, max) => min + Math.random() * (max - min);
 
 export const Orbs = () => {
   const refs = useRef([]);
 
   useEffect(() => {
-    const state = ORBS.map(({ size }) => {
-      const a = rand(0, Math.PI * 2);
-      const s = rand(90, 140);
-      return { x: rand(0, W - size), y: rand(0, H - size), vx: Math.cos(a) * s, vy: Math.sin(a) * s, size };
-    });
-
     let raf;
-    let last = performance.now();
+    const start = performance.now();
     const tick = (now) => {
-      const dt = Math.min((now - last) / 1000, 0.05);
-      last = now;
-      state.forEach((o, i) => {
-        o.x += o.vx * dt;
-        o.y += o.vy * dt;
-        if (o.x <= 0) { o.x = 0; o.vx = Math.abs(o.vx); }
-        if (o.x >= W - o.size) { o.x = W - o.size; o.vx = -Math.abs(o.vx); }
-        if (o.y <= 0) { o.y = 0; o.vy = Math.abs(o.vy); }
-        if (o.y >= H - o.size) { o.y = H - o.size; o.vy = -Math.abs(o.vy); }
+      const t = (now - start) / 1000;
+      ORBS.forEach((o, i) => {
+        const a = o.phase + t * o.speed * o.dir;
+        const x = o.cx * W + Math.cos(a) * o.rx - o.size / 2;
+        const y = o.cy * H + Math.sin(a) * o.ry - o.size / 2;
         const el = refs.current[i];
-        if (el) el.style.transform = `translate3d(${o.x}px, ${o.y}px, 0)`;
+        if (el) el.style.transform = `translate3d(${x}px, ${y}px, 0)`;
       });
       raf = requestAnimationFrame(tick);
     };
