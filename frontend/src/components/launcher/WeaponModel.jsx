@@ -33,7 +33,7 @@ export const WeaponModel = () => (
       <directionalLight position={[2, -3, -4]} intensity={1.6} color="#9BF3FF" />
       <Suspense fallback={null}>
         <Carbine />
-        <Environment preset="city" />
+        <Environment files="/hdr/city.hdr" />
       </Suspense>
       <OrbitControls
         enableZoom={false}

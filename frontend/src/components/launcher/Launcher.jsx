@@ -25,7 +25,7 @@ export default function Launcher() {
     <div className="launcher-stage" data-testid="launcher-stage">
       <div className="launcher-frame" style={{ width: BASE_W * scale, height: BASE_H * scale }}>
         <main className="launcher" style={{ transform: `scale(${scale})` }} data-testid="launcher">
-          <Orbs />
+          {/* <Orbs /> */}
           <TitleBar />
           <WeaponModel />
           <Dock />
