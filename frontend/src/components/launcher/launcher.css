@@ -39,6 +39,7 @@
   height: 800px;
   transform-origin: top left;
   background: #0A0A0A;
+  border-radius: 24px;
   overflow: hidden;
   color: #fff;
   font-family: 'Authentic', sans-serif;
@@ -53,15 +54,17 @@
 .titlebar {
   position: absolute;
   left: 0; right: 0; top: 0;
-  height: 72px;
+  height: 100px;
   padding: 0 24px 0 32px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
+.brand-block { display: flex; flex-direction: column; gap: 8px; }
+
 .brand {
-  font-size: 24px;
+  font-size: 34px;
   line-height: 1;
   text-transform: uppercase;
 }
@@ -72,29 +75,24 @@
   color: transparent;
 }
 
-.online-wrap {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
-
 .online {
   display: flex;
   align-items: center;
-  gap: 12px;
-  font-size: 18px;
+  gap: 6px;
+  font-size: 14px;
+  line-height: 16px;
   text-transform: uppercase;
   letter-spacing: .06em;
   white-space: nowrap;
 }
 
-.online__dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--online);
-  box-shadow: 0 0 6px 1px rgba(43, 255, 136, .95), 0 0 16px 4px rgba(43, 255, 136, .45);
+.online__icon { color: #fff; display: block; flex: none; }
+.online__label { color: rgba(255, 255, 255, .7); }
+.online__count {
+  font-size: 14px;
+  line-height: 16px;
+  font-variant-numeric: tabular-nums;
+  color: #8CFFB0;
 }
 
 .window-controls { display: flex; gap: 4px; }
@@ -144,15 +142,14 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  color: rgba(255, 255, 255, .8) !important;
+  color: #fff !important;
   transition: color .2s ease;
 }
-.profile:hover { color: #fff !important; }
+.profile:hover { color: var(--c2) !important; }
 
 .profile__avatar {
   display: grid;
   place-items: center;
-  color: var(--c2);
 }
 
 .profile__name {
@@ -171,22 +168,15 @@
   text-transform: uppercase;
   letter-spacing: .05em;
   white-space: nowrap;
-  color: rgba(255, 255, 255, .8) !important;
+  color: #fff !important;
   transition: color .2s ease;
 }
-.nav-btn__icon { display: flex; color: var(--c2); }
-.nav-btn:hover { color: #fff !important; }
+.nav-btn__icon { display: flex; }
+.nav-btn:hover { color: var(--c2) !important; }
 
 .nav-btn--play {
   font-size: 18px;
   letter-spacing: .1em;
 }
-.nav-btn--play span {
-  background: linear-gradient(135deg, var(--c1), var(--c2) 55%, var(--c3));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-.nav-btn--play .nav-btn__icon { color: var(--c1); }
 
 .launcher button:focus-visible { outline: 2px solid var(--c2); outline-offset: 3px; }

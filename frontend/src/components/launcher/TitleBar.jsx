@@ -1,15 +1,16 @@
 import { Minus, X } from "lucide-react";
+import { RadioLoopIcon } from "@/components/ui/radio-loop";
 
 export const TitleBar = ({ online = 0 }) => (
   <header className="titlebar" data-testid="launcher-titlebar">
-    <h1 className="brand" data-testid="launcher-brand">
-      authentic <span className="brand__accent">rp</span>
-    </h1>
-
-    <div className="online-wrap" data-testid="launcher-online">
-      <p className="online">
-        <span className="online__dot" aria-hidden="true" />
-        онлайн: <span data-testid="online-count">{online}</span>
+    <div className="brand-block">
+      <h1 className="brand" data-testid="launcher-brand">
+        authentic <span className="brand__accent">rp</span>
+      </h1>
+      <p className="online" data-testid="launcher-online">
+        <RadioLoopIcon size={16} className="online__icon" aria-hidden="true" />
+        <span className="online__label">онлайн проекта:</span>
+        <span className="online__count" data-testid="online-count">{online}</span>
       </p>
     </div>
 
