@@ -27,13 +27,13 @@ export const WeaponModel = () => (
       dpr={[1, 2]}
       gl={{ alpha: true, antialias: true, powerPreference: "high-performance" }}
     >
-      <ambientLight intensity={0.35} />
-      <directionalLight position={[4, 5, 5]} intensity={1.8} />
-      <directionalLight position={[-4, 2, -3]} intensity={2.4} color="#22D3EE" />
-      <directionalLight position={[2, -3, -4]} intensity={1.6} color="#9BF3FF" />
+      <ambientLight intensity={0.2} />
+      <directionalLight position={[4, 5, 5]} intensity={1.2} />
+      <directionalLight position={[-4, 2, -3]} intensity={1.6} color="#22D3EE" />
+      <directionalLight position={[2, -3, -4]} intensity={1} color="#9BF3FF" />
       <Suspense fallback={null}>
         <Carbine />
-        <Environment files="/hdr/city.hdr" />
+        <Environment files="/hdr/city.hdr" environmentIntensity={0.55} />
       </Suspense>
       <OrbitControls
         enableZoom={false}
